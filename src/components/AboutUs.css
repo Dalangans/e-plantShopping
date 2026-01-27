@@ -1,0 +1,131 @@
+.about-us-container {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 2rem 1rem;
+}
+
+.about-us-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 3rem 2rem;
+}
+
+.about-us-content h1 {
+    color: #2d5016;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #4a7c2c;
+    padding-bottom: 1rem;
+}
+
+.about-section {
+    margin-bottom: 2.5rem;
+}
+
+.about-section h2 {
+    color: #2d5016;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-left: 5px solid #4a7c2c;
+    padding-left: 1rem;
+}
+
+.about-section p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    color: #555;
+}
+
+.features-list li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.features-list li::before {
+    content: "🌿";
+    position: absolute;
+    left: 0;
+}
+
+.why-choose-us {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #4a7c2c;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(74, 124, 44, 0.2);
+}
+
+.feature-card h3 {
+    color: #2d5016;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.contact-section {
+    background-color: #f0f0f0;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.contact-info {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 4px solid #4a7c2c;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .about-us-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .about-us-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .why-choose-us {
+        grid-template-columns: 1fr;
+    }
+}

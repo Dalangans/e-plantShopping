@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Nursery - Online Plant Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                🌿 Paradise Nursery
+            </div>
+            <button class="cart-btn" id="cartBtn">
+                🛒 Cart (<span id="cartCount">0</span>)
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Products Section -->
+        <section class="products-section">
+            <h1>Our Collection</h1>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <button class="close-btn" id="closeCartBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems" class="cart-items">
+                    <!-- Cart items will be displayed here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <strong>Total: $<span id="totalPrice">0.00</span></strong>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal hidden">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 id="productTitle">Product Details</h2>
+                <button class="close-btn" id="closeProductBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-details">
+                    <img id="productImage" src="" alt="Product">
+                    <div class="product-info">
+                        <p><strong>Price:</strong> $<span id="productPrice">0</span></p>
+                        <p id="productDesc"></p>
+                        <div class="product-actions">
+                            <input type="number" id="quantityInput" min="1" value="1" class="quantity-input">
+                            <button class="add-to-cart-btn" id="addToCartBtn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

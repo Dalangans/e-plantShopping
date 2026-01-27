@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/CartSlice';
 import Navbar from './components/Navbar';
@@ -9,6 +9,12 @@ import CartItem from './components/CartItem';
 import './App.css';
 
 function App() {
+  const [showProductList, setShowProductList] = useState(false);
+
+  const handleGetStartedClick = () => {
+    setShowProductList(true);
+  };
+
   return (
     <Provider store={store}>
       <Router>
@@ -16,15 +22,22 @@ function App() {
           <Route
             path="/"
             element={
-              <div className="landing-page">
-                <div className="landing-content">
-                  <h1>🌿 Paradise Nursery</h1>
-                  <p>Discover beautiful plants to transform your space into a green paradise</p>
-                  <Link to="/products" className="get-started-btn">
-                    Get Started
-                  </Link>
+              showProductList ? (
+                <>
+                  <Navbar />
+                  <ProductList />
+                </>
+              ) : (
+                <div className="landing-page">
+                  <div className="landing-content">
+                    <h1>🌿 Paradise Nursery</h1>
+                    <p>Discover beautiful plants to transform your space into a green paradise</p>
+                    <button onClick={handleGetStartedClick} className="get-started-btn">
+                      Get Started
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )
             }
           />
           <Route

@@ -11,7 +11,7 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     // Add item to cart
-    addToCart: (state, action) => {
+    addItem: (state, action) => {
       const { id, name, price, image } = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
 
@@ -36,7 +36,7 @@ const CartSlice = createSlice({
     },
 
     // Remove item from cart
-    removeFromCart: (state, action) => {
+    removeItem: (state, action) => {
       const id = action.payload;
       state.items = state.items.filter((item) => item.id !== id);
 
@@ -48,30 +48,18 @@ const CartSlice = createSlice({
       );
     },
 
-    // Increase quantity
-    increaseQuantity: (state, action) => {
-      const id = action.payload;
+    // Update quantity (increase or decrease)
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
       const item = state.items.find((item) => item.id === id);
 
       if (item) {
-        item.quantity += 1;
-      }
-
-      // Update totals
-      state.totalItems = state.items.reduce((sum, item) => sum + item.quantity, 0);
-      state.totalPrice = state.items.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-      );
-    },
-
-    // Decrease quantity
-    decreaseQuantity: (state, action) => {
-      const id = action.payload;
-      const item = state.items.find((item) => item.id === id);
-
-      if (item && item.quantity > 1) {
-        item.quantity -= 1;
+        if (quantity <= 0) {
+          // Remove item if quantity is 0 or less
+          state.items = state.items.filter((item) => item.id !== id);
+        } else {
+          item.quantity = quantity;
+        }
       }
 
       // Update totals
@@ -91,7 +79,7 @@ const CartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart } = CartSlice.actions;
+export const { addItem, removeItem, updateQuantity, clearCart } = CartSlice.actions;
 
 export default CartSlice.reducer;
 

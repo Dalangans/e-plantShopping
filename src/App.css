@@ -10,6 +10,15 @@ body {
     color: #333;
 }
 
+/* Background Image Class */
+.background-image {
+    background-image: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&h=800&fit=crop');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 /* Landing Page Background */
 .landing-page {
     min-height: 100vh;

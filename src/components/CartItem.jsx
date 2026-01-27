@@ -1,25 +1,38 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeFromCart, increaseQuantity, decreaseQuantity, clearCart } from '../store/CartSlice';
+import { removeItem, updateQuantity, clearCart } from '../store/CartSlice';
+import Navbar from './Navbar';
 import './CartItem.css';
 
 function CartItem() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
   const totalItems = useSelector((state) => state.cart.totalItems);
 
+  // Calculate total amount function
+  const calculateTotalAmount = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const totalPrice = calculateTotalAmount();
+
   const handleRemoveItem = (id) => {
-    dispatch(removeFromCart(id));
+    dispatch(removeItem(id));
   };
 
   const handleIncreaseQuantity = (id) => {
-    dispatch(increaseQuantity(id));
+    const item = cartItems.find((item) => item.id === id);
+    if (item) {
+      dispatch(updateQuantity({ id, quantity: item.quantity + 1 }));
+    }
   };
 
   const handleDecreaseQuantity = (id) => {
-    dispatch(decreaseQuantity(id));
+    const item = cartItems.find((item) => item.id === id);
+    if (item && item.quantity > 1) {
+      dispatch(updateQuantity({ id, quantity: item.quantity - 1 }));
+    }
   };
 
   const handleCheckout = () => {
@@ -33,7 +46,9 @@ function CartItem() {
   };
 
   return (
-    <div className="cart-container">
+    <>
+      <Navbar />
+      <div className="cart-container">
       <h1>Shopping Cart</h1>
 
       {cartItems.length === 0 ? (
@@ -141,6 +156,7 @@ function CartItem() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

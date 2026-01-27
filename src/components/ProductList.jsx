@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../store/CartSlice';
+import { addItem } from '../store/CartSlice';
+import Navbar from './Navbar';
 import './ProductList.css';
 
 function ProductList() {
@@ -127,7 +128,7 @@ function ProductList() {
 
   const handleAddToCart = (product) => {
     dispatch(
-      addToCart({
+      addItem({
         id: product.id,
         name: product.name,
         price: product.price,
@@ -142,7 +143,9 @@ function ProductList() {
   };
 
   return (
-    <div className="product-list-container">
+    <>
+      <Navbar />
+      <div className="product-list-container">
       {Object.entries(products).map(([category, items]) => (
         <section key={category} className="product-category">
           <h2 className="category-title">{category}</h2>
@@ -176,6 +179,7 @@ function ProductList() {
         </section>
       ))}
     </div>
+    </>
   );
 }
 

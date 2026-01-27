@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../store/CartSlice';
-import Navbar from './Navbar';
 import './ProductList.css';
 
 function ProductList() {
@@ -143,9 +142,7 @@ function ProductList() {
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="product-list-container">
+    <div className="product-list-container">
       {Object.entries(products).map(([category, items]) => (
         <section key={category} className="product-category">
           <h2 className="category-title">{category}</h2>
@@ -179,7 +176,6 @@ function ProductList() {
         </section>
       ))}
     </div>
-    </>
   );
 }
 

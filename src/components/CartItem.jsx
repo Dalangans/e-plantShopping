@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeItem, updateQuantity, clearCart } from '../store/CartSlice';
-import Navbar from './Navbar';
 import './CartItem.css';
 
 function CartItem() {
@@ -46,9 +45,7 @@ function CartItem() {
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="cart-container">
+    <div className="cart-container">
       <h1>Shopping Cart</h1>
 
       {cartItems.length === 0 ? (
@@ -156,7 +153,6 @@ function CartItem() {
         </div>
       )}
     </div>
-    </>
   );
 }
 

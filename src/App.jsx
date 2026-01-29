@@ -24,7 +24,7 @@ function App() {
             }
           />
           <Route
-            path="/products"
+            path="/plant"
             element={
               <>
                 <Navbar />

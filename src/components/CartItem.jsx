@@ -49,11 +49,11 @@ function CartItem() {
       <h1>Shopping Cart</h1>
 
       {cartItems.length === 0 ? (
-        <div className="empty-cart">
+          <div className="empty-cart">
           <div className="empty-cart-content">
             <p className="empty-icon">🛒</p>
             <p className="empty-message">Your cart is empty</p>
-            <Link to="/products" className="continue-shopping-btn">
+            <Link to="/plant" className="continue-shopping-btn">
               Continue Shopping
             </Link>
           </div>
@@ -138,7 +138,7 @@ function CartItem() {
                 Checkout
               </button>
 
-              <Link to="/products" className="continue-shopping-link">
+              <Link to="/plant" className="continue-shopping-link">
                 Continue Shopping
               </Link>
 

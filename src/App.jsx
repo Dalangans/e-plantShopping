@@ -7,6 +7,8 @@ import Home from './components/Home';
 import AboutUs from './components/AboutUs';
 import ProductList from './components/ProductList';
 import CartItem from './components/CartItem';
+import Checkout from './components/Checkout';
+import OrderConfirmation from './components/OrderConfirmation';
 import './App.css';
 
 function App() {
@@ -38,6 +40,24 @@ function App() {
               <>
                 <Navbar />
                 <CartItem />
+              </>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <>
+                <Navbar />
+                <Checkout />
+              </>
+            }
+          />
+          <Route
+            path="/order-confirmation"
+            element={
+              <>
+                <Navbar />
+                <OrderConfirmation />
               </>
             }
           />

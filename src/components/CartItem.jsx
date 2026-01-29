@@ -1,10 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { removeItem, updateQuantity, clearCart } from '../store/CartSlice';
 import './CartItem.css';
 
 function CartItem() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const totalItems = useSelector((state) => state.cart.totalItems);
@@ -35,7 +36,7 @@ function CartItem() {
   };
 
   const handleCheckout = () => {
-    alert('🚀 Coming Soon!\n\nThe checkout feature is coming soon. Thank you for your interest in Paradise Nursery!');
+    navigate('/checkout');
   };
 
   const handleClearCart = () => {

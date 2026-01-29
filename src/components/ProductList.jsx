@@ -13,7 +13,7 @@ function ProductList() {
         id: 1,
         name: 'Monstera Deliciosa',
         price: 35.99,
-        image: 'https://images.unsplash.com/photo-1596848212624-11249c1ff57b?w=400&h=400&fit=crop',
+        image: '/images/monstera-deliciosa.jpg',
       },
       {
         id: 2,
